@@ -1,0 +1,50 @@
+{
+    "name": "subhh/discovery-distribution",
+    "type": "project",
+    "description": "Install script for TYPO3, subugoe/find extension and subhh/discovery extension for Hamburg Open Science project",
+    "homepage": "https://github.com/subhh/HOS-TYPO3-discovery/",
+    "license": ["GPL-2.0+"],
+    "keywords": ["TYPO3 CMS", "typo3find HamburgOpenScience Discovery Appwerft"],
+     "support": {
+        "issues": "https://github.com/subhh/HOS-TYPO3-discovery/issues"
+    },
+    "require": {
+        "typo3/cms-core": "8.7@stable",
+        "typo3/cms-tstemplate": "8.7@stable",
+        "helhum/typo3-console": "^4.1",
+        "subugoe/find": "^3.1",
+        "subhh/discovery": "^0.1.0",
+        "typo3/cms-introduction": "^3.0",  
+        "solarium/solarium": "^3.7"
+    },
+    "scripts":{
+                "typo3-cms-scripts": [
+                        "typo3cms install:fixfolderstructure"
+                ],
+                "post-install-cmd": [
+                        "@typo3-cms-scripts"
+                ],
+                "post-update-cmd": [
+                        "@typo3-cms-scripts"
+                ]
+    },
+    "autoload": {
+        "psr-4": {
+            "subhh\\schaufenster\\": "Classes/"
+        }
+    },
+    "replace": {
+        "schaufenster": "self.version",
+        "typo3-ter/schaufenster": "self.version"
+    },
+    "extra": {
+                "typo3/cms": {
+                        "cms-package-dir": "{$vendor-dir}/typo3/cms",
+                        "web-dir": "web"
+                },
+                "helhum/typo3-console": {
+                        "install-extension-dummy": false
+                }
+     }
+}
+
